@@ -1,0 +1,73 @@
+# =========================
+# GLOBAL
+# =========================
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE / Editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# NODE / REACT (admin-web)
+# =========================
+admin-web/node_modules/
+admin-web/build/
+admin-web/dist/
+admin-web/.env
+admin-web/.env.local
+admin-web/.env.development.local
+admin-web/.env.test.local
+admin-web/.env.production.local
+
+# =========================
+# DJANGO (backend)
+# =========================
+backend/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/**/*.pyd
+backend/*.sqlite3
+backend/db.sqlite3
+backend/media/
+backend/staticfiles/
+backend/.env
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+
+# =========================
+# FLUTTER (mobile)
+# =========================
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/.pub-cache/
+mobile/build/
+mobile/ios/Flutter/Flutter.framework
+mobile/ios/Flutter/Flutter.podspec
+mobile/ios/ServiceDefinitions.json
+mobile/android/app/src/debug
+mobile/android/app/src/profile
+mobile/android/app/release
+
+# Flutter environment files
+mobile/*.env
+
+# =========================
+# OTHER
+# =========================
+node_modules/
