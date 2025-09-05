@@ -36,7 +36,7 @@ export default function SuccessToast({ message, duration = 4000, onClose }) {
   return (
     <div
       className={`fixed bottom-5  w-80 bg-white border rounded shadow 
-    font-sans select-none pointer-events-auto
+     select-none pointer-events-auto
     transition-all duration-500 ease-in-out ${
       isClose ? "-right-full" : "right-5"
     }

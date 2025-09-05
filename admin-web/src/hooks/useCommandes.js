@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { getCommande } from '../services/CommandeService';
+import { useState, useEffect, useCallback } from "react";
+import { getCommande } from "../services/CommandeService";
 
 const useCommandes = () => {
   const [commandes, setCommandes] = useState([]);
@@ -10,6 +10,7 @@ const useCommandes = () => {
     setLoading(true);
     try {
       const data = await getCommande();
+      console.log(data);
       setCommandes(data);
       setError(null);
     } catch (err) {

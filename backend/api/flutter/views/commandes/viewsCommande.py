@@ -2,9 +2,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status,permissions
 import json
-from ..serializer.serializerCommande import CommandeSerializer
-from ..serializer.serializerComprendre import ComprendreSerializer
-from ..models import Commande
+from ...serializer.serializerCommande import CommandeSerializer
+from ...serializer.serializerComprendre import ComprendreSerializer
+from ...models import Commande
 
 class CommandeView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -59,14 +59,6 @@ class CommandeDetailView(APIView):
         commande = Commande.objects.filter(pk=numCommande).first()
         if commande:
             return Response(CommandeSerializer(commande, context={'request':request}).data, status=status.HTTP_200_OK)
-        return Response({}, status=status.HTTP_200_OK)
-
-class DernierCommandeView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-    def get(self, request, limite):
-        commande = Commande.objects.filter().order_by('-numCommande')[:limite]
-        if commande or limite>1:
-            return Response(CommandeSerializer(commande, context={'request':request}, many=True if limite>1 else None).data, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_200_OK)
 
 

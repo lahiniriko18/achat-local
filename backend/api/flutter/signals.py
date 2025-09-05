@@ -54,7 +54,6 @@ def auto_delete_image_on_change(sender, instance, **kwargs):
 @receiver(post_save, sender=Comprendre)
 def update_produit_quantite(sender, instance, created, **kwargs):
     if created:
-        print(instance.quantiteCommande)
         produit = instance.numProduit
         if produit.quantite >= instance.quantiteCommande:
             produit.quantite -= instance.quantiteCommande

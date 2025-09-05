@@ -26,7 +26,7 @@ function InputComponent({
       {label && (
         <label
           htmlFor={name}
-          className="block mb-2 font-medium text-base ms-0 text-gray-700"
+          className="block mb-2 font-medium text-base ms-0"
         >
           {label}
         </label>
@@ -42,7 +42,7 @@ function InputComponent({
           onChange={onChange ?? ((e) => handleChange(e, setFormData))}
           placeholder={placeholder}
           required={required ?? false}
-          className={`w-full border rounded-md pl-3 ${
+          className={`w-full custom-border custom-bg rounded-md pl-3 ${
             type == "password" ? "pr-10" : "pr-3"
           } py-2 focus:outline-none focus:ring-1 focus:ring-primaire-2
             ${erreur ? "border-red-500" : "border-gray-300"}`}
@@ -50,7 +50,7 @@ function InputComponent({
         {type == "password" && (
           <div
             onClick={() => togglePassword()}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+            className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
           >
             {isCache ? <Eye /> : <EyeClosed />}
           </div>

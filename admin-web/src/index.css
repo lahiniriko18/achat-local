@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +16,36 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.my-scale{
+  @apply transition-all duration-300 hover:scale-105
+}
+
+.hover-primary-color{
+  @apply bg-primaire-1 transition-all duration-300 hover:bg-primaire-2
+}
+
+.custom-border{
+  @apply border-[1px] border-theme-light dark:border-theme-dark
+}
+.custom-border-b{
+  @apply border-b border-b-theme-light dark:border-b-theme-dark
+}
+.custom-bg{
+  @apply bg-font-light dark:bg-font-dark
+}
+.custom-hover{
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800
+}
+.custom-bg-low{
+  @apply bg-gray-50 dark:bg-gray-800
+}
+.custom-text-color{
+  @apply text-theme-dark dark:text-theme-light
+}
+.custom-toast{
+  @apply custom-bg custom-border custom-text-color relative
 }
 
 a {

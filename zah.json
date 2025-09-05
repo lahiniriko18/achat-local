@@ -1,0 +1,83 @@
+{
+    "numCommande": 2,
+    "numClient": 2,
+    "dateCommande": "2025-08-23T15:14:14.870743Z",
+    "reference": "Commande-2",
+    "client": {
+        "numClient": 2,
+        "nom": "Avotra",
+        "contact": "034 01 001 01",
+        "adresse": "Tanambao"
+    },
+    "produits": [
+        {
+            "produit": {
+                "numProduit": 3,
+                "numClassement": null,
+                "numCategorie": 2,
+                "categorie": {
+                    "numCategorie": 2,
+                    "nomCategorie": "Fruits",
+                    "imageCategorie": "http://127.0.0.1:8000/media/images/categories/mdpMASAPP.png",
+                    "descCategorie": "Frais"
+                },
+                "libelleProduit": "Akondro",
+                "quantite": 10.0,
+                "prixUnitaire": 3000.0,
+                "uniteMesure": "Kg",
+                "description": "Tsara",
+                "qrCode": "http://127.0.0.1:8000/media/images/produits/qrcode/qr_code_produit_3.png",
+                "images": [
+                    {
+                        "numImage": 7,
+                        "numProduit": 3,
+                        "nomImage": "http://127.0.0.1:8000/media/images/produits/images/image_1754637464808.png"
+                    },
+                    {
+                        "numImage": 8,
+                        "numProduit": 3,
+                        "nomImage": "http://127.0.0.1:8000/media/images/produits/images/image_1754637464809.png"
+                    }
+                ]
+            },
+            "quantiteCommande": 1.0
+        },
+        {
+            "produit": {
+                "numProduit": 2,
+                "numClassement": null,
+                "numCategorie": 3,
+                "categorie": {
+                    "numCategorie": 3,
+                    "nomCategorie": "Immeubles",
+                    "imageCategorie": "http://127.0.0.1:8000/media/images/categories/modelEdtImage_zb5c2tm.png",
+                    "descCategorie": "Confortable"
+                },
+                "libelleProduit": "Chaise",
+                "quantite": 45.0,
+                "prixUnitaire": 30000.0,
+                "uniteMesure": "pièce",
+                "description": "Confortable",
+                "qrCode": "http://127.0.0.1:8000/media/images/produits/qrcode/qr_code_produit_2.png",
+                "images": [
+                    {
+                        "numImage": 4,
+                        "numProduit": 2,
+                        "nomImage": "http://127.0.0.1:8000/media/images/produits/images/image_1754637425184.png"
+                    },
+                    {
+                        "numImage": 5,
+                        "numProduit": 2,
+                        "nomImage": "http://127.0.0.1:8000/media/images/produits/images/image_1754637425185.png"
+                    },
+                    {
+                        "numImage": 6,
+                        "numProduit": 2,
+                        "nomImage": "http://127.0.0.1:8000/media/images/produits/images/image_1754637425186.png"
+                    }
+                ]
+            },
+            "quantiteCommande": 1.0
+        }
+    ]
+}

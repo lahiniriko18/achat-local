@@ -1,10 +1,14 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MoveLeft } from "lucide-react";
 import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import InputComponent from "../../components/InputComponent";
 import { validationPhone } from "../../utils/validation";
-import { addClient, updateClient,getClientById } from "../../services/ClientService";
+import {
+  addClient,
+  updateClient,
+  getClientById,
+} from "../../services/ClientService";
 import { cleanFormData } from "../../utils/validation";
 
 function FormulaireClient() {
@@ -66,7 +70,7 @@ function FormulaireClient() {
     <div className="flex h-full justify-center items-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 bg-white shadow-md rounded-lg p-6 space-y-4"
+        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 custom-bg shadow-md rounded-lg p-6 space-y-4"
       >
         <div className="relative group flex justify-center">
           <Link to="/client">
@@ -106,7 +110,7 @@ function FormulaireClient() {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-white font-semibold px-6 py-2 rounded-md transition duration-200"
+            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-theme-light font-semibold px-6 py-2 rounded-md transition duration-200"
           >
             Enregistrer
           </button>

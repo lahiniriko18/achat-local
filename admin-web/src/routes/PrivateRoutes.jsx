@@ -1,23 +1,25 @@
 import { Route } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
 import MainLayout from "../layouts/MainLayout";
 import Accueil from "../pages/Accueil";
-import Produit from "../pages/produit/Produit";
-import FormulaireProduit from "../pages/produit/FormulaireProduit";
-import DetailProduit from "../pages/produit/DetailProduit";
-import Client from "../pages/client/Client";
-import FormulaireClient from "../pages/client/FormulaireClient";
-import DetailClient from "../pages/client/DetailClient";
 import Categorie from "../pages/categorie/Categorie";
+import DetailCategorie from "../pages/categorie/DetailCategorie";
 import FormulaireCategorie from "../pages/categorie/FormulaireCategorie";
+import Client from "../pages/client/Client";
+import DetailClient from "../pages/client/DetailClient";
+import FormulaireClient from "../pages/client/FormulaireClient";
 import Commande from "../pages/commande/Commande";
 import FormulaireCommande from "../pages/commande/FormulaireCommande";
+import Historique from "../pages/Historique";
+import DetailProduit from "../pages/produit/DetailProduit";
+import FormulaireProduit from "../pages/produit/FormulaireProduit";
+import Produit from "../pages/produit/Produit";
 import Statistique from "../pages/Statistique";
-import Profile from "../pages/user/Profile";
-import UpdateProfil from "../pages/user/UpdateProfil";
 import AuthPassword from "../pages/user/AuthPassword";
-import ResetPassword from "../pages/user/ResetPassword";
 import ChangeUsername from "../pages/user/ChangeUsername";
+import Profile from "../pages/user/Profile";
+import ResetPassword from "../pages/user/ResetPassword";
+import UpdateProfil from "../pages/user/UpdateProfil";
+import PrivateRoute from "./PrivateRoute";
 
 export default (
   <>
@@ -49,6 +51,7 @@ export default (
           path="modifier/:numCategorie"
           element={<FormulaireCategorie />}
         />
+        <Route path="details/:numCategorie" element={<DetailCategorie />} />
       </Route>
       <Route path="/commande">
         <Route index element={<Commande />} />
@@ -64,6 +67,7 @@ export default (
         <Route path="reset-password/" element={<ResetPassword />} />
         <Route path="change-username/" element={<ChangeUsername />} />
       </Route>
+      <Route path="historique/*" element={<Historique />} />
     </Route>
   </>
 );

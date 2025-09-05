@@ -62,3 +62,27 @@ export const updateCategorie = async (formData, numCategorie) => {
     throw error;
   }
 };
+
+export const getEffectifProduitCategorie = async (numCategorie) => {
+  try {
+    const response = await axios.get(
+      `/categorie/effectif-produit/${numCategorie}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error.response.data);
+    throw error;
+  }
+};
+
+export const getProduitPlusCommandeCategorie = async (numCategorie) => {
+  try {
+    const response = await axios.get(
+      `/categorie/plus-commande/${numCategorie}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error.response.data);
+    throw error;
+  }
+};

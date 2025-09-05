@@ -21,7 +21,7 @@ export default function Sidebar({ children }) {
 
   return (
     <aside className="h-screen max-w-60">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+      <nav className="h-full flex flex-col border-r border-r-theme-light dark:border-r-theme-dark shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center">
           <img
             src={logo}
@@ -32,7 +32,7 @@ export default function Sidebar({ children }) {
           />
           <button
             onClick={() => setIsOpen((curr) => !curr)}
-            className="ml-2 p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
+            className="ml-2 p-1.5 rounded-lg bg-font-light dark:bg-font-dark"
           >
             {isOpen ? <ChevronFirst /> : <ChevronLast />}
           </button>
@@ -44,7 +44,7 @@ export default function Sidebar({ children }) {
 
         <div
           onClick={() => navigate("/profile")}
-          className="border-t flex p-3 cursor-pointer"
+          className="border-t flex p-3 cursor-pointer border-t-theme-light dark:border-t-theme-dark shadow-sm"
         >
           <img
             src={user.image ?? defaultUser}
@@ -56,7 +56,7 @@ export default function Sidebar({ children }) {
             ${isOpen ? "w-52 ml-3" : "w-0"}`}
           >
             <div className="leading-4">
-              <h4 className="font-semibold font-sans">{user.username}</h4>
+              <h4 className="font-semibold">{user.username}</h4>
               <span className="text-xs text-gray-600">{user.email}</span>
             </div>
           </div>
@@ -66,18 +66,22 @@ export default function Sidebar({ children }) {
   );
 }
 
-export function SidebarItem({ icon, texte }) {
+export function SidebarItem({ icon, texte, url }) {
+  const navigate = useNavigate();
   const { isOpen, itemOpen, toggleSidebar } = useContext(SidebarContext);
   return (
     <li
-      onClick={() => toggleSidebar(texte)}
+      onClick={() => {
+        toggleSidebar(texte);
+        url ? navigate(url) : null;
+      }}
       className={`relative group flex items-center
         px-3 py-2 my-1 font-medium rounded-md 
-        cursor-pointer transition-colors duration-100 font-sans
+        cursor-pointer transition-colors duration-100
         ${
           itemOpen == texte
             ? "bg-primaire-2 text-white"
-            : "hover:bg-primaire-2 text-gray-600 hover:text-white"
+            : "hover:bg-primaire-2 hover:text-white"
         }
         `}
     >

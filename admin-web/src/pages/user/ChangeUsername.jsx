@@ -36,7 +36,7 @@ function ChangeUsername() {
     <div className="flex h-full justify-center items-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 bg-white shadow-md rounded-lg p-6 space-y-4"
+        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 custom-bg shadow-md rounded-lg p-6 space-y-4"
       >
         <div className="relative flex flex-col justify-center items-center">
           <Link to="..">
@@ -49,11 +49,11 @@ function ChangeUsername() {
             className="border rounded-md p-1 text-sm text-gray-500 
           flex flex-col w-full"
           >
-            <p className="font-sans text-center ">
+            <p className=" text-center ">
               Votre code validation a été envoyé par votre email. Vérifier le
               puis saisir pour réinitialiser votre mot de passe
             </p>
-            <p className="w-full text-center pt-2 font-sans">
+            <p className="w-full text-center pt-2 ">
               Vous n'avez pas reçu le code ?
               <span className="text-blue-500 cursor-pointer pl-2">
                 Renvoyer
@@ -84,7 +84,7 @@ function ChangeUsername() {
         <div className="flex items-center flex-col text-center mt-4">
           <button
             type="submit"
-            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-white font-semibold 
+            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-theme-light font-semibold 
             px-6 py-2 rounded-md transition duration-200"
           >
             Enregistrer

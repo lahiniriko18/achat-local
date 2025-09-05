@@ -15,7 +15,7 @@ function SelectComponent({
       {label && (
         <label
           htmlFor={name}
-          className="block mb-1 font-medium text-base ms-0 text-gray-700"
+          className="block mb-1 font-medium text-base ms-0"
         >
           {label}
         </label>
@@ -24,7 +24,7 @@ function SelectComponent({
         name={name}
         value={value}
         onChange={onChange ?? ((e) => handleChange(e, setFormData))}
-        className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primaire-2"
+        className="w-full custom-border custom-bg rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primaire-2"
       >
         <option value="">
           {defaultValeur ?? "-- Choisir une catégorie --"}

@@ -60,7 +60,7 @@ function Sign() {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
-      <div className="flex flex-col gap-3 bg-white p-8 rounded-xl shadow w-full m-3 lg:m-0 lg:w-2/3 text-center">
+      <div className="flex flex-col gap-3 custom-bg p-8 rounded-xl shadow w-full m-3 lg:m-0 lg:w-2/3 text-center">
         <div className="w-full flex">
           <div className="flex-1">
             <div>
@@ -116,11 +116,12 @@ function Sign() {
                 <div className="flex flex-col justify-center">
                   <button
                     type="submit"
-                    className="text-center w-full rounded-full bg-primaire-1 transition-all duration-500 hover:bg-primaire-2 shadow-md text-white font-sans text-base font-semibold"
+                    className="text-center w-full rounded-full bg-primaire-1 transition-all duration-500 hover:bg-primaire-2 
+                    shadow-md text-theme-light  text-base font-semibold"
                   >
                     S'inscrire
                   </button>
-                  <span className="font-sans pt-2 text-center">
+                  <span className=" pt-2 text-center">
                     Avez-vous une compte ?{" "}
                     <a
                       href="/login"

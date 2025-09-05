@@ -56,6 +56,7 @@ export const updateProduit = async (formData, numProduit) => {
       `/produit/modifier/${numProduit}`,
       formData
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error.response.data);

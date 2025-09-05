@@ -19,3 +19,23 @@ export const getProduitPlusCommande = async (limite) => {
     throw error;
   }
 };
+
+export const commandeEvolution = async () => {
+  try {
+    const response = await axios.get(`/commande/commande-semaine`);
+    return response.data;
+  } catch (error) {
+    console.error(error.response.data);
+    throw error;
+  }
+};
+
+export const getLastCommande = async (limite) => {
+  try {
+    const response = await axios.get(`/commande/dernier-commande/${limite}`);
+    return response.data;
+  } catch (error) {
+    console.error(error.response.data);
+    throw error;
+  }
+};

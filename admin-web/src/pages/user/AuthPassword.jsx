@@ -36,7 +36,7 @@ function AuthPassword() {
     <div className="flex h-full justify-center items-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 bg-white shadow-md rounded-lg p-6 space-y-4"
+        className="w-full max-h-full overflow-auto lg:w-1/2 md:w-2/3 custom-bg shadow-md rounded-lg p-6 space-y-4"
       >
         <div className="relative flex justify-center">
           <Link to="/profile">
@@ -60,10 +60,10 @@ function AuthPassword() {
         <div className="text-center pt-3">
           <button
             type="submit"
-            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-white font-semibold px-6 py-2 rounded-md transition duration-200"
+            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-theme-light font-semibold px-6 py-2 rounded-md transition duration-200"
           >
             Suivant
-          </button>
+          </button> 
         </div>
       </form>
     </div>

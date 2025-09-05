@@ -1,22 +1,29 @@
-import { useState, useEffect } from "react";
-import SelectComponent from "../../components/SelectComponent";
+import {
+  ExternalLink,
+  PenBox,
+  PlusCircle,
+  ShoppingCart,
+  Trash2,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import InputComponent from "../../components/InputComponent";
 import Modal from "../../components/Modal";
-import { getCategorie } from "../../services/CategorieService";
-import useProduits from "../../hooks/useProduits";
-import { Link } from "react-router-dom";
-import { ShoppingCart, PlusCircle, ExternalLink, PenBox } from "lucide-react";
 import QuantiteComponent from "../../components/QuantiteComponent";
+import SelectComponent from "../../components/SelectComponent";
+import { useProduits } from "../../hooks/useProduits";
+import { getCategorie } from "../../services/CategorieService";
 import { isSelected } from "../../utils/traitement";
 
 function SelectProduit({ produitSelected, setProduitSelected }) {
   const [optionCategories, setOptionCategories] = useState([]);
-  const { produits, loading, error, fetchProduits } = useProduits();
+  const { produits } = useProduits();
   const [categorieSelected, setCategorieSelected] = useState("");
   const [valueSearch, setValueSearch] = useState("");
   const [showQuantite, setShowQuantite] = useState(false);
   const [quantite, setQuantite] = useState(1);
   const [currentProduit, setCurrentProduit] = useState(null);
+  const navigate = useNavigate();
   const valSearchCleaned = valueSearch.toLocaleLowerCase().trim();
   const produitCategorie = produits.filter((produit) =>
     produit.numCategorie.toString().includes(categorieSelected.toString())
@@ -65,6 +72,12 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
   const changeValueQuantite = (e) => {
     setQuantite(e.target.value);
   };
+  const handleDetailProduit = (produit) => {
+    console.log(produit);
+    navigate(`/produit/details/${produit.numProduit}`, {
+      state: { produit },
+    });
+  };
 
   const addProduit = () => {
     const ps = {
@@ -107,7 +120,7 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
 
   return (
     <div className="flex h-full justify-center items-start p-3">
-      <div className="flex h-full flex-col w-full md:w-4/5 border bg-white shadow rounded-lg space-y-4">
+      <div className="flex h-full flex-col w-full md:w-4/5 custom-bg shadow rounded-lg space-y-4">
         <div className="w-full flex flex-col px-4 pt-4 justify-start">
           <div className="flex flex-col sm:flex-row justify-center items-center sm:justify-between">
             <h2 className="text-xl font-semibold text-center mb-4 ml-3">
@@ -124,7 +137,7 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
               </Link>
               <div
                 className="w-6 h-6 bg-red-500 absolute -top-2 
-                -right-4 rounded-full flex justify-center items-center text-white"
+                -right-4 rounded-full flex justify-center items-center text-theme-light"
               >
                 <span className="text-[12px] font-semibold text-center">
                   {produitSelected.length}
@@ -155,7 +168,7 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
           {filteredProduit.map((produit) => (
             <div
               className={`shadow-md rounded relative flex justify-center items-start p-3 flex-col 
-                ${isSelected(produitPanier, produit) ? "bg-gray-100" : ""}`}
+                ${isSelected(produitPanier, produit) ? "custom-bg-low" : ""}`}
             >
               {produit.images && (
                 <div className="w-full h-32 flex justify-center">
@@ -204,9 +217,9 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
                         }`}
                   />
                 )}
-                <ExternalLink
+                <Trash2
                   onClick={() => deleteOnPanier(produit)}
-                  className={`transition-all duration-300 hover:scale-105
+                  className={`transition-all duration-300 hover:scale-105 text-red-500
                       ${
                         produitPanier.some(
                           (p) => p.numProduit === produit.numProduit
@@ -215,19 +228,23 @@ function SelectProduit({ produitSelected, setProduitSelected }) {
                           : "pointer-events-none opacity-50"
                       }`}
                 />
+                <ExternalLink
+                  onClick={() => handleDetailProduit(produit)}
+                  className={`transition-all duration-300 hover:scale-105 cursor-pointer`}
+                />
               </div>
             </div>
           ))}
         </div>
         <div className="w-full h-10 mb-2">
-          <div className="flex justify-end gap-3 px-2 text-white font-sans">
-            <Link to="/commande" className="text-white h-10">
-              <button className="h-10 bg-gray-500 transition-all duration-300 hover:bg-gray-600 flex justify-center items-center">
+          <div className="flex justify-end gap-3 px-2">
+            <Link to="/commande" className="text-theme-light h-10">
+              <button className="h-10 bg-gray-500 text-theme-light transition-all duration-300 hover:bg-gray-600 flex justify-center items-center">
                 Annuler
               </button>
             </Link>
-            <Link to="client" className="text-white">
-              <button className="bg-primaire-1 h-10 transition-all duration-300 hover:bg-primaire-2 flex justify-center items-center">
+            <Link to="client" className="text-theme-light">
+              <button className="bg-primaire-1 text-theme-light h-10 transition-all duration-300 hover:bg-primaire-2 flex justify-center items-center">
                 Suivant
               </button>
             </Link>

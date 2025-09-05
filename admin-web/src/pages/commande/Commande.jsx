@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Info,
+  PlusCircleIcon,
+  Trash2,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Modal from "../../components/Modal";
-import SuccessToast from "../../components/Notification";
-import Confirmation from "../../components/Confirmation";
+import { toast } from "react-toastify";
 import { AucunElement, Chargement } from "../../components/ChargeData";
-import { totalMontantCommande } from "../../utils/produitUtils";
-import useCommandes from "../../hooks/useCommandes";
-import useCheckSelection from "../../hooks/useCheckSelection";
+import Confirmation from "../../components/Confirmation";
+import Modal from "../../components/Modal";
 import TextSelectionComponent from "../../components/TextSelectionComponent";
+import useCheckSelection from "../../hooks/useCheckSelection";
+import useCommandes from "../../hooks/useCommandes";
 import {
   deleteCommande,
   deleteMultipleCommande,
 } from "../../services/CommandeService";
-import {
-  Trash2,
-  Info,
-  ChevronLeft,
-  ChevronRight,
-  PlusCircleIcon,
-} from "lucide-react";
+import { totalMontantCommande } from "../../utils/produitUtils";
 
 function Commande() {
-  const { commandes, loading, error, fetchCommandes } = useCommandes();
+  const { commandes, loading, fetchCommandes } = useCommandes();
   const {
     checkedIds,
     allChecked,
@@ -35,8 +35,6 @@ function Commande() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const location = useLocation();
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   const filteredData = commandes.filter((item) =>
     item.dateCommande
@@ -57,8 +55,9 @@ function Commande() {
     } catch (error) {
       alert("Erreur de la suppression " + error);
     } finally {
-      setShowToast(true);
-      setToastMessage("Suppression avec succès");
+      toast.success("Suppression avec succès", {
+        className: "custom-toast",
+      });
     }
   };
   const handleDeleteMultipleCommande = async () => {
@@ -75,8 +74,9 @@ function Commande() {
     } catch (error) {
       alert("Erreur de la suppression " + error);
     } finally {
-      setShowToast(true);
-      setToastMessage("Suppression avec succès");
+      toast.success("Suppression avec succès", {
+        className: "custom-toast",
+      });
     }
   };
   const hideModal = () => {
@@ -89,27 +89,28 @@ function Commande() {
   };
   useEffect(() => {
     if (location.state?.successMessage) {
-      setToastMessage(location.state.successMessage);
-      setShowToast(true);
-      window.history.replaceState({}, document.title);
+      toast.success(location.state.successMessage, {
+        className: "custom-toast",
+      });
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
-  }, [location.state]);
+  }, [location]);
   return (
     <div className="flex h-full p-3 flex-col overflow-auto">
-      <h2 className="font-semibold font-sans text-2xl">Commande</h2>
+      <h2 className="font-semibold  text-2xl">Commande</h2>
       <div className="flex-1 flex flex-col mt-3 py-2 px-2">
         <div className="flex justify-between items-center">
           <div className="flex gap-2 items-center">
             <label
               htmlFor=""
-              className="font-medium text-base ms-0 text-gray-700 hidden sm:block"
+              className="font-medium text-base ms-0  hidden sm:block"
             >
               Lignes :
             </label>
             <select
               value={itemsPerPage}
               onChange={(e) => setItemsPerPage(e.target.value)}
-              className="border outline-none rounded px-2 py-1 text-sm"
+              className="custom-border custom-bg outline-none rounded px-2 py-1 text-sm"
             >
               {[5, 6, 10, 25, 50, 100].map((n) => (
                 <option key={n} value={n}>
@@ -121,7 +122,7 @@ function Commande() {
           </div>
           <Link to="/commande/ajouter">
             <button
-              className="bg-primaire-2 text-white rounded-md
+              className="bg-primaire-2 text-theme-light rounded-md
            h-10 text-center flex gap-2 items-center mb-2"
             >
               <PlusCircleIcon />
@@ -142,15 +143,15 @@ function Commande() {
           <div className="flex flex-1 flex-col">
             <div className="flex flex-1 rounded-md">
               <div className="rounded-md w-full overflow-auto">
-                <table className="w-full bg-white shadow-md rounded">
-                  <thead className="bg-gray-100 text-gray-600 font-sans text-base leading-normal border-b">
+                <table className="w-full  shadow-md rounded">
+                  <thead className="text-base leading-normal border-b">
                     <tr>
                       <th className="px-6 text-left">
                         <input
                           type="checkbox"
                           onChange={() => handleCheckAll()}
                           checked={allChecked}
-                          className="form-checkbox w-5 h-5 rounded text-primaire cursor-pointer bg-white border-gray-300 focus:ring-0"
+                          className="form-checkbox w-5 h-5 rounded text-primaire cursor-pointer focus:ring-0"
                         />
                       </th>
                       <th className="py-3 px-6 text-left">Numéro</th>
@@ -163,14 +164,14 @@ function Commande() {
                       <th className="py-3 px-6 text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-700 text-base font-sans">
+                  <tbody className=" text-base ">
                     {currentItems.map((commande, index) => (
                       <tr
                         key={index}
-                        className={`border-b hover:bg-gray-50 
+                        className={`custom-border-b custom-hover
                         ${
                           checkedIds.includes(commande.numCommande)
-                            ? "bg-gray-50"
+                            ? "custom-bg-low"
                             : ""
                         }`}
                       >
@@ -210,20 +211,20 @@ function Commande() {
               <TextSelectionComponent nbChecked={nbChecked} />
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                className="px-2 py-2 bg-gray-200
-             hover:bg-gray-300 rounded-full border-0 transition-all cursor-pointer hover:scale-105"
+                className="px-2 py-2 custom-bg-low
+                 rounded-full border-0 transition-all cursor-pointer hover:scale-105"
                 disabled={currentPage === 1}
               >
                 <ChevronLeft />
               </button>
-              <span className="font-sans text-base">
+              <span className=" text-base">
                 Page {currentPage} par {totalPages}
               </span>
               <button
                 onClick={() =>
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
-                className="px-2 py-2 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded-full 
+                className="px-2 py-2 custom-bg-low cursor-pointer rounded-full 
             border-0 transition-all hover:scale-105"
                 disabled={currentPage === totalPages}
               >
@@ -248,12 +249,6 @@ function Commande() {
               ? "Etes-vous sûre de supprimmer tous ces commandes sélectionnés"
               : "Etes-vous sûre de supprimmer cet commande?"
           }
-        />
-      )}
-      {showToast && (
-        <SuccessToast
-          message={toastMessage}
-          onClose={() => setShowToast(false)}
         />
       )}
     </div>

@@ -23,7 +23,7 @@ function QuantiteComponent({
         ${visible ? "opacity-100 scale-100" : "opacity-0 scale-50"}
         `}
     >
-      <div className="p-2 w-96 bg-white shadow-lg rounded-md">
+      <div className="p-2 w-96 custom-bg shadow-lg rounded-md">
         <form
           action=""
           onSubmit={submitAction}
@@ -51,7 +51,7 @@ function QuantiteComponent({
           <div className="text-center my-2">
             <button
               type="submit"
-              className="bg-primaire-1 hover:bg-primaire-2 text-white font-semibold px-6 py-2 rounded-md transition duration-200"
+              className="bg-primaire-1 hover:bg-primaire-2 text-theme-light font-semibold px-6 py-2 rounded-md transition duration-200"
             >
               Ajouter à mon panier
             </button>

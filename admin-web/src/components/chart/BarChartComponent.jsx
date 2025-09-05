@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { colors } from "../utils/colors";
+import { colors } from "../../utils/colors";
 
 function BarChartComponent({ data }) {
   const chartData = Object.entries(data).map(([key, value]) => ({

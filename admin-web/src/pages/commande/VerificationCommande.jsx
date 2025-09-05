@@ -36,7 +36,7 @@ function VerificationCommande({ produitSelected, client }) {
 
   return (
     <div className="flex h-full justify-center items-center px-3">
-      <div className="w-full overflow-auto lg:w-1/2 md:w-2/3 bg-white shadow rounded-lg p-6 space-y-4">
+      <div className="w-full overflow-auto lg:w-1/2 md:w-2/3 custom-bg shadow rounded-lg p-6 space-y-4">
         <div className="flex flex-col w-full h-full">
           <h2 className="text-xl font-semibold text-center mb-4 ml-3 sm:ml-0">
             Vérification
@@ -58,16 +58,16 @@ function VerificationCommande({ produitSelected, client }) {
             </div>
           </div>
           <div className="w-full min-h-10 mt-8">
-            <div className="flex flex-col sm:flex-row justify-end gap-2 text-white font-sans">
-              <Link to="../client" className="text-white h-10">
-                <button className="h-10 w-full sm:w-auto bg-gray-500 transition-all duration-300 hover:bg-gray-600 flex justify-center items-center">
+            <div className="flex flex-col sm:flex-row justify-end gap-2">
+              <Link to="../client">
+                <button className="h-10 w-full sm:w-auto text-theme-light bg-gray-500 transition-all duration-300 hover:bg-gray-600 flex justify-center items-center">
                   Précedent
                 </button>
               </Link>
-              <Link to=".." className="text-white">
+              <Link to="..">
                 <button
                   onClick={() => validerCommande()}
-                  className="bg-primaire-1 h-10 w-full transition-all duration-300 hover:bg-primaire-2 flex justify-center items-center"
+                  className="bg-primaire-1 h-10 text-theme-light w-full transition-all duration-300 hover:bg-primaire-2 flex justify-center items-center"
                 >
                   Valider
                 </button>

@@ -5,10 +5,14 @@ export const renameFile = (file) => {
 };
 
 export const indexImages = (url, images) => {
+  let indexFind = -1;
   images.forEach((image, index) => {
-    if (image.nomImage == url) return index;
+    if (image.nomImage == url) {
+      indexFind = index;
+      return indexFind;
+    }
   });
-  return -1;
+  return indexFind;
 };
 
 export const isSelected = (produits, produit) => {

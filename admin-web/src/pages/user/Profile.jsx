@@ -23,7 +23,7 @@ function Profile() {
 
   return (
     <div className="flex flex-col h-full w-full p-4 overflow-auto">
-      <h2 className="font-bold text-gray-700 font-sans text-2xl">Profile</h2>
+      <h2 className="font-bold text-2xl">Profile</h2>
       <div className="mt-3 flex flex-col w-full">
         <div className="flex w-full gap-4 h-32 items-center">
           <div className="w-32 h-32">
@@ -33,7 +33,7 @@ function Profile() {
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <ul className="text-gray-700">
+          <ul>
             <li className="text-2xl font-bold">{user.username}</li>
             <li className="font-semibold text-lg">{user.type ?? "Admin"}</li>
             <li>{user.adresse}</li>
@@ -41,11 +41,12 @@ function Profile() {
         </div>
       </div>
       <div className="flex flex-col w-full mt-4">
-        <h2 className="font-bold text-gray-700 font-sans text-xl">
+        <h2 className="font-bold text-xl">
           Informations personnelles
         </h2>
         <div className="flex w-full flex-col gap-2 py-3">
-          <div className="flex justify-between items-center border-b-2 py-2 text-gray-700">
+          <div className="flex justify-between items-center border-b-2 
+          border-theme-light dark:border-theme-dark py-2">
             <div className="flex flex-1 items-center gap-2 text-gray-600">
               <User2 size={20} className="mr-3 sm:mr-0" />
               <span className="hidden sm:flex">Nom complet</span>
@@ -55,7 +56,8 @@ function Profile() {
             </span>
           </div>
 
-          <div className="flex w-full justify-between items-center border-b-2 py-2 text-gray-700">
+          <div className="flex w-full justify-between items-center border-b-2 
+          border-theme-light dark:border-theme-dark py-2">
             <div className="flex flex-1 items-center gap-2 text-gray-600">
               <Mail size={20} className="mr-3 sm:mr-0" />
               <span className="hidden sm:flex">Email</span>
@@ -65,7 +67,8 @@ function Profile() {
             </span>
           </div>
 
-          <div className="flex w-full justify-between items-center border-b-2 py-2 text-gray-700">
+          <div className="flex w-full justify-between items-center border-b-2
+          border-theme-light dark:border-theme-dark  py-2">
             <div className="flex flex-1 items-center gap-2 text-gray-600">
               <PhoneIcon size={20} className="mr-3 sm:mr-0" />
               <span className="hidden sm:flex">Contact</span>
@@ -75,7 +78,8 @@ function Profile() {
             </span>
           </div>
 
-          <div className="flex justify-between items-center border-b-2 py-2 text-gray-700">
+          <div className="flex justify-between items-center border-b-2
+          border-theme-light dark:border-theme-dark py-2">
             <div className="flex flex-1 items-center gap-2 text-gray-600">
               <MapPin size={20} className="mr-3 sm:mr-0" />
               <span className="hidden sm:flex">Adresse</span>
@@ -88,13 +92,13 @@ function Profile() {
       </div>
 
       <div className="flex w-full flex-col mt-3">
-        <h2 className="font-bold text-gray-700 font-sans text-xl">
+        <h2 className="font-bold  text-xl">
           Mot de passe et sécurité
         </h2>
         <div className="flex flex-col w-full mt-3 gap-3">
-          <div className="flex justify-between items-start sm:items-center font-sans">
+          <div className="flex justify-between items-start sm:items-center ">
             <div className="flex flex-col">
-              <span className="text-gray-700">Mot de passe</span>
+              <span>Mot de passe</span>
               <small
                 onClick={() => handleAuthPassword("reset-password")}
                 className="text-primaire-2 cursor-pointer"
@@ -105,14 +109,14 @@ function Profile() {
             <button
               onClick={() => handleAuthPassword("reset-password")}
               className="bg-gray-500 transition-all duration-300 hover:bg-gray-600
-             border-0 rounded-full hidden h-9 sm:flex items-center text-white text-sm font-sans font-normal"
+             border-0 rounded-full hidden h-9 sm:flex items-center text-theme-light text-sm  font-normal"
             >
               Modifier
             </button>
           </div>
-          <div className="flex justify-between  items-start sm:items-center font-sans">
+          <div className="flex justify-between  items-start sm:items-center ">
             <div className="flex flex-col">
-              <span className="text-gray-700">Nom du d'utilisateur</span>
+              <span>Nom du d'utilisateur</span>
               <small
                 onClick={() => handleAuthPassword("change-username")}
                 className="text-primaire-2 cursor-pointer"
@@ -123,7 +127,7 @@ function Profile() {
             <button
               onClick={() => handleAuthPassword("change-username")}
               className="bg-gray-500 transition-all duration-300 hover:bg-gray-600
-             border-0 rounded-full h-9 hidden sm:flex items-center text-white text-sm font-sans font-normal"
+             border-0 rounded-full h-9 hidden sm:flex items-center text-theme-light text-sm  font-normal"
             >
               Modifier
             </button>
@@ -134,14 +138,14 @@ function Profile() {
         <button
           onClick={() => handleModifier()}
           className="bg-gray-500 transition-all duration-300 hover:bg-gray-600
-             border-0 rounded-lg h-9 flex justify-center items-center text-white text-sm font-sans font-normal"
+             border-0 rounded-lg h-9 flex justify-center items-center text-theme-light text-sm  font-normal"
         >
           Modifier le profile
         </button>
         <button
           onClick={() => handleLogout()}
           className="bg-red-500 transition-all duration-300 hover:bg-red-600
-             border-0 rounded-lg h-9 flex justify-center items-center text-white text-sm font-sans font-normal"
+             border-0 rounded-lg h-9 flex justify-center items-center text-theme-light text-sm  font-normal"
         >
           Déconnexion
         </button>

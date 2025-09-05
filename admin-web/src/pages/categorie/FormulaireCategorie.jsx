@@ -89,7 +89,7 @@ function FormulaireCategorie() {
     <div className="flex h-full justify-center p-3">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-h-full overflow-auto md:w-3/5 bg-white shadow-md rounded-lg p-6 space-y-4"
+        className="w-full max-h-full overflow-auto md:w-3/5 custom-bg shadow-md rounded-lg p-6 space-y-4"
         encType="multipart/form-data"
       >
         <div className="relative group flex justify-center">
@@ -112,7 +112,7 @@ function FormulaireCategorie() {
           erreur={erreurs.nomCategorie}
         />
         <div>
-          <label className="block text-md font-medium text-gray-700 mb-1">
+          <label className="block text-md font-medium mb-1">
             Description
           </label>
           <textarea
@@ -120,7 +120,7 @@ function FormulaireCategorie() {
             value={formData.descCategorie}
             onChange={(e) => handleChange(e, setFormData)}
             rows="4"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primaire-2"
+            className="w-full custom-bg custom-border rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primaire-2"
             placeholder="Ex: Riz du bonne qualité provenant d'Ambatondrazaka"
           />
         </div>
@@ -156,7 +156,7 @@ function FormulaireCategorie() {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-white font-semibold px-6 py-2 rounded-md transition duration-200"
+            className="bg-primaire-1 hover:bg-primaire-2 sm:w-1/2 text-theme-light font-semibold px-6 py-2 rounded-md transition duration-200"
           >
             Enregistrer
           </button>

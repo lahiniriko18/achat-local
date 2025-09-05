@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import {
+  MapPin,
   MoveLeft,
   PenSquare,
+  PhoneIcon,
   PlusCircleIcon,
   Trash2,
   User2,
-  PhoneIcon,
-  MapPin,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import defaultUser from "../../assets/user.png";
-import useImageManager from "../../hooks/useImgeManager";
-import { cleanFormData, validationPhone } from "../../utils/validation";
+import useImageManager from "../../hooks/useImageManager";
 import { updateProfile } from "../../services/UtilisateurService";
 import { useUser } from "../../store/UserContext";
 import { handleChange } from "../../utils/formUtils";
+import { cleanFormData, validationPhone } from "../../utils/validation";
 
 function UpdateProfil() {
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ function UpdateProfil() {
 
   return (
     <div className="flex h-full justify-center p-3">
-      <div className="w-full max-h-full overflow-auto md:w-4/5 lg:w-1/2 bg-white shadow-md rounded-lg p-4">
+      <div className="w-full max-h-full overflow-auto md:w-4/5 lg:w-1/2 custom-bg shadow-md rounded-lg p-4">
         <div className="flex flex-col w-full h-full">
           <div className="relative group flex justify-center">
             <Link to="..">
@@ -177,7 +177,7 @@ function UpdateProfil() {
                         onChange={(e) => handleChange(e, setFormData)}
                         placeholder="Votre nom"
                         className="w-full h-full border-gray-500 border-b focus:outline-none focus:shadow
-                  focus:border-primaire-2 pt-2 text-base"
+                  focus:border-primaire-2 pt-2 text-base bg-font-light dark:bg-font-dark"
                       />
                     </div>
                     <div className="h-12">
@@ -188,7 +188,7 @@ function UpdateProfil() {
                         onChange={(e) => handleChange(e, setFormData)}
                         placeholder="Votre prénom"
                         className="w-full h-full border-gray-500 border-b focus:outline-none focus:shadow
-                  focus:border-primaire-2 pt-2 text-base"
+                  focus:border-primaire-2 pt-2 text-base bg-font-light dark:bg-font-dark"
                       />
                     </div>
                     <div className="h-12">
@@ -200,7 +200,7 @@ function UpdateProfil() {
                         onChange={(e) => handleChange(e, setFormData)}
                         placeholder="Votre contact"
                         className="w-full h-full border-gray-500 border-b focus:outline-none focus:shadow
-                  focus:border-primaire-2 pt-2 text-base"
+                  focus:border-primaire-2 pt-2 text-base bg-font-light dark:bg-font-dark"
                       />
                     </div>
                     <div className="h-12">
@@ -212,7 +212,7 @@ function UpdateProfil() {
                         onChange={(e) => handleChange(e, setFormData)}
                         placeholder="Votre adresse"
                         className="w-full h-full border-gray-500 border-b focus:outline-none focus:shadow
-                  focus:border-primaire-2 pt-2 text-base"
+                  focus:border-primaire-2 pt-2 text-base bg-font-light dark:bg-font-dark"
                       />
                     </div>
                   </div>
@@ -221,7 +221,7 @@ function UpdateProfil() {
                   <button
                     type="submit"
                     className="text-center w-full sm:w-1/2 rounded-lg bg-primaire-1 transition-all duration-500 hover:bg-primaire-2 
-                  shadow-md text-white font-sans text-base font-semibold"
+                  shadow-md text-theme-light text-base font-semibold"
                   >
                     Enregistrer
                   </button>
